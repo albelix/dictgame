@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{{ block title }}
+        Результаты для участника {{ player.id_in_group }}
+после раунда {{ player.round_number }}
+{{ endblock }}
+
+{{ block content }}
+
+    <p>
+    В начале раунда у вас было {{ C.ENDOWMENT  }}.
+<br> <br>
+    Вы внесли на общий счет {{ player.contribution }}.
+<br> <br>
+    Всего ваша группа внесла на общий счет {{ group.total_contribution }}.
+<br> <br>
+    Ваша доля от доходов с общего счета составила {{ group.individual_share }}.
+<br> <br>
+    Ваш общий доход в текущем раунде равен {{ player.payoff }}.
+    </p>
+
+
+     <table class="table-condensed" style="width:500px; margin-top:20px;">
+
+           <tr><td>Ваш (участника {{ player.id_in_group }}) накопленный доход
+               составляет </td><td> {{ participant.payoff }}</td></tr>
+         <tr><td>Сумма ваших (участника {{ player.id_in_group }}) взносов на общий счет равна </td><td>{{ player.my_contribution}}</td></tr>
+
+
+    </table>
+
+     <br><br>
+
+     <b>Результаты остальных участников</b>
+
+     <br>
+     <br>
+     <table class="table-condensed" style="width:500px; margin-top:20px;">
+        {{ for other in others }}
+        <tr><td> </td><td> Накопленный доход </td><td> Сумма взносов </td></tr>
+       <tr><td>Участник {{ other.id_in_group}}:</td><td>{{other.participant.payoff}}</td><td>{{other.my_contribution}}</td></tr>
+        {{ endfor }}
+    </table>
+
+     <br>
+     <br>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Принятие решений II - результаты для участника {{ player.id_in_group }}
+{% endblock %}
+
+{% block content %}
+
+        В этой игре вы заработали {{ total_payoff_full }}.
+
+        <br> <br>
+
+        Ваша накопленная сумма на общем счету составила {{
+group.global_contribution }} из {{ C.THRESHOLD }} ({{
+group.current_share }}%).
+
+        <br> <br>
+
+            Если вам повезет, вы получите {{ total_payoff_full }}
+
+        <br> <br>
+
+        Если вам <strong> не </strong> повезет, вы получите {{ total_payoff_cut }}
+
+        <br> <br>
+
+        Положитесь на волю случая и пожалуйста, дождитесь окончания!
+    </p>
+
+{% endblock %}

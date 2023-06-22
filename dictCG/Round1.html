@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    Round {{ round_number }}
+{% endblock %}
+
+{% block content %}
+    {% if round_number == 1 %}
+        <h2>Round 1</h2>
+        <p>Please wait while the pairs are being formed...</p>
+    {% else %}
+        <h2>Round 2</h2>
+        <p>Your payoffs from Round 1:</p>
+        <ul>
+            {% for prev_player in prev_round.get_players %}
+                {% if prev_player.id_in_group == player.id_in_group %}
+                    <li>Player {{ prev_player.id_in_group }}: {{ prev_player.payoff }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
