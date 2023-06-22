@@ -1,0 +1,6 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = ssh://laboratory_hse@tatorhe.ru:622/home/laboratory_hse/venv310/dictns
