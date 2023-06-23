@@ -37,9 +37,9 @@
      <br>
      <br>
      <table class="table-condensed" style="width:500px; margin-top:20px;">
-        {{ for other in others }}
         <tr><td> </td><td> Накопленный доход </td><td> Сумма взносов </td></tr>
-       <tr><td>Участник {{ other.id_in_group}}:</td><td>{{other.participant.payoff}}</td><td>{{other.my_contribution}}</td></tr>
+        {{ for other in others
+         <tr><td>Участник {{ other.id_in_group}}:</td><td>{{other.participant.payoff}}</td><td>{{other.my_contribution}}</td></tr>
         {{ endfor }}
     </table>
 
